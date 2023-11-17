@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuItem, PrimeIcons } from 'primeng/api';
+import { MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'shared-menu',
@@ -11,13 +11,47 @@ export class MenuComponent {
 
    public menuItems : MenuItem[] = []
 
-ngOninit(){
-  this.menuItems = [
-    {label: 'New', icon: PrimeIcons.PLUS},
-    {label: 'Open', icon: 'pi pi-fw pi-download'},
-    {label: 'Undo', icon: 'pi pi-fw pi-refresh'},
+ngOnInit(){
+    this.menuItems = [
+      {
+        label: 'Pipes de Angular',
+        icon: 'pi pi-desktop',
 
-  ]
-}
+        items: [
+          {
+            label: 'Textos y fechas',
+            icon: 'pi pi-align-left',
+            routerLink: '/'
+          },
+
+          {
+            label: 'Numeros',
+            icon: 'pi pi-dollar',
+            routerLink:'numbers'
+          },
+
+          {
+            label: 'No comunes',
+            icon: 'pi pi-globe',
+            routerLink:'uncommon'
+
+          }
+
+        ]
+      },
+      {
+        label: 'Pipes personalizados',
+        icon: 'pi pi-cog',
+        items: [
+          {
+            label: 'Custom Pipes',
+            icon: 'pi pi-cog',
+            routerLink: 'custom'
+          }
+        ]
+      }
+
+    ]
+  }
 
 }
